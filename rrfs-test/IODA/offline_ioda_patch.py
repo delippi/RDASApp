@@ -107,18 +107,29 @@ for group in groups:
                 continue
             g.variables[var].setncattr(attr, invar.getncattr(attr))
 
-# Generate longitude_latitude_pressure location strings (for dup checking)
-longitude_latitude_pressure = [f"{lon}_{lat}_{pres}" for lon, lat, pres in zip(obs_lon, obs_lat, obs_prs)]
-longitude_latitude_pressure = np.array(longitude_latitude_pressure)
 
 metadata_group = fout.groups['MetaData']
 
-# Add the longitude_latitude_pressure variable to the file
-var = "longitude_latitude_pressure"
-data = longitude_latitude_pressure
+# Rounding to make strings consistent
+lon_r = np.round(obs_lon.astype(np.float64), 10)
+lat_r = np.round(obs_lat.astype(np.float64), 10)
+prs_r = np.round(obs_prs.astype(np.float64), 10)
+
+# Generate longitude_latitude location strings (for dup checking)
+var = "longitude_latitude"
+longitude_latitude = [f"{lon}_{lat}" for lon, lat in zip(lon_r, lat_r)]
+longitude_latitude = np.array(longitude_latitude)
 if var not in metadata_group.variables:
-    metadata_group.createVariable(f"{var}", 'str', 'Location', fill_value=fill)
-metadata_group.variables[f"{var}"][:] = data
+    metadata_group.createVariable(f"{var}", str, ("Location",))
+metadata_group.variables[f"{var}"][:] = longitude_latitude
+
+# Generate longitude_latitude_pressure location strings (for dup checking)
+var = "longitude_latitude_pressure"
+longitude_latitude_pressure = [f"{lon}_{lat}_{pres}" for lon, lat, pres in zip(lon_r, lat_r, prs_r)]
+longitude_latitude_pressure = np.array(longitude_latitude_pressure)
+if var not in metadata_group.variables:
+    metadata_group.createVariable(f"{var}", str, ("Location",))
+metadata_group.variables[f"{var}"][:] = longitude_latitude_pressure
 
 # Add the exp_err_norm to file (for goes-r amvs)
 if 'expectedError' in metadata_group.variables:
