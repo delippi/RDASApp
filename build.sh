@@ -287,9 +287,12 @@ if [[ $BUILD_WORKAROUND == 'YES' ]]; then
   cp ../sorc/_workaround_/fv3-jedi-io/IO/FV3Restart/module_fv3lam_stats.f90     ../sorc/fv3-jedi/src/fv3jedi/IO/FV3Restart/module_fv3lam_stats.f90
   cp ../sorc/_workaround_/fv3-jedi-io/IO/FV3Restart/m_TwoPhaseScatterGather.f90 ../sorc/fv3-jedi/src/fv3jedi/IO/FV3Restart/m_TwoPhaseScatterGather.f90
 
-  # Workaround for updating surface and delp states after outerloops (fv3-jedi PR1511)
+  # Workaround for updating delp states after outerloops (fv3-jedi PR1511)
   cp ../sorc/_workaround_/fv3-jedi/fv3jedi_state_mod.F90    ../sorc/fv3-jedi/src/fv3jedi/State/.
   cp ../sorc/_workaround_/fv3-jedi/FieldsMetadataDefault.h  ../sorc/fv3-jedi/src/fv3jedi/FieldMetadata/.
+
+  # Workaround for ObsErrorFactorPressureCheck.cc and At2M (no PR yet)
+  cp ../sorc/_workaround_/ufo/ObsErrorFactorPressureCheck.cc ../sorc/ufo/src/ufo/filters/obsfunctions/.
 
 fi
 
