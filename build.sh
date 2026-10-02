@@ -287,17 +287,9 @@ if [[ $BUILD_WORKAROUND == 'YES' ]]; then
   cp ../sorc/_workaround_/fv3-jedi-io/IO/FV3Restart/module_fv3lam_stats.f90     ../sorc/fv3-jedi/src/fv3jedi/IO/FV3Restart/module_fv3lam_stats.f90
   cp ../sorc/_workaround_/fv3-jedi-io/IO/FV3Restart/m_TwoPhaseScatterGather.f90 ../sorc/fv3-jedi/src/fv3jedi/IO/FV3Restart/m_TwoPhaseScatterGather.f90
 
-  # Workaround for GSL surface operator
-  cp ../sorc/_workaround_/ufo/CMakeLists.txt   ../sorc/ufo/src/ufo/operators/sfccorrected/.
-  cp ../sorc/_workaround_/ufo/EvalSurface*     ../sorc/ufo/src/ufo/operators/sfccorrected/.
-  cp ../sorc/_workaround_/ufo/ObsSfcCorrected* ../sorc/ufo/src/ufo/operators/sfccorrected/.
-
   # Workaround for updating surface and delp states after outerloops (fv3-jedi PR1511)
   cp ../sorc/_workaround_/fv3-jedi/fv3jedi_state_mod.F90    ../sorc/fv3-jedi/src/fv3jedi/State/.
   cp ../sorc/_workaround_/fv3-jedi/FieldsMetadataDefault.h  ../sorc/fv3-jedi/src/fv3jedi/FieldMetadata/.
-
-  # DuplicateThinning zero-obs space fix
-  cp ../sorc/_workaround_/ufo/DuplicateThinning.cc ../sorc/ufo/src/ufo/filters/.
 
 fi
 

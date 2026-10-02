@@ -94,98 +94,98 @@ do f = 1, size(increment_fields)
 
 enddo
 
-! ----------------------------------------------------------------------
-! Workaround: update 2m temperature from lowest model level increment
-! ----------------------------------------------------------------------
-
-if (hasfield(self%fields, 'air_temperature_at_2m') .and. &
-    hasfield(increment_fields, 'air_temperature')) then
-
-  call self%get_field('air_temperature_at_2m', t2m_state)
-  call get_field(increment_fields, 'air_temperature', t_inc)
-
-  ksurf = self%npz
-
-  do j = t2m_state%jsc, t2m_state%jec
-    do i = t2m_state%isc, t2m_state%iec
-      t2m_state%array(i,j,1) = t2m_state%array(i,j,1) + t_inc%array(i,j,ksurf)
-    enddo
-  enddo
-
-  nullify(t2m_state)
-  nullify(t_inc)
-
-endif
-
-! ----------------------------------------------------------------------
-! Workaround: update 2m humidity from lowest model level increment
-! ----------------------------------------------------------------------
-
-if (hasfield(self%fields, 'water_vapor_mixing_ratio_wrt_moist_air_at_2m') .and. &
-    hasfield(increment_fields, 'water_vapor_mixing_ratio_wrt_moist_air')) then
-
-  call self%get_field('water_vapor_mixing_ratio_wrt_moist_air_at_2m', q2m_state)
-  call get_field(increment_fields, 'water_vapor_mixing_ratio_wrt_moist_air', q_inc)
-
-  ksurf = self%npz
-
-  do j = q2m_state%jsc, q2m_state%jec
-    do i = q2m_state%isc, q2m_state%iec
-      q2m_state%array(i,j,1) = q2m_state%array(i,j,1) + q_inc%array(i,j,ksurf)
-      if (q2m_state%array(i,j,1) < 0.0_kind_real) q2m_state%array(i,j,1) = 0.0_kind_real
-    enddo
-  enddo
-
-  nullify(q2m_state)
-  nullify(q_inc)
-
-endif
-
-! ----------------------------------------------------------------------
-! Workaround: update 10m eastward wind from lowest model level increment
-! ----------------------------------------------------------------------
-
-if (hasfield(self%fields, 'eastward_wind_at_surface') .and. &
-    hasfield(increment_fields, 'eastward_wind')) then
-
-  call self%get_field('eastward_wind_at_surface', u10m_state)
-  call get_field(increment_fields, 'eastward_wind', u_inc)
-
-  ksurf = self%npz
-
-  do j = u10m_state%jsc, u10m_state%jec
-    do i = u10m_state%isc, u10m_state%iec
-      u10m_state%array(i,j,1) = u10m_state%array(i,j,1) + u_inc%array(i,j,ksurf)
-    enddo
-  enddo
-
-  nullify(u10m_state)
-  nullify(u_inc)
-
-endif
-
-! ----------------------------------------------------------------------
-! Workaround: update 10m northward wind from lowest model level increment
-! ----------------------------------------------------------------------
-
-if (hasfield(self%fields, 'northward_wind_at_surface') .and. &
-    hasfield(increment_fields, 'northward_wind')) then
-
-  call self%get_field('northward_wind_at_surface', v10m_state)
-  call get_field(increment_fields, 'northward_wind', v_inc)
-
-  ksurf = self%npz
-
-  do j = v10m_state%jsc, v10m_state%jec
-    do i = v10m_state%isc, v10m_state%iec
-      v10m_state%array(i,j,1) = v10m_state%array(i,j,1) + v_inc%array(i,j,ksurf)
-    enddo
-  enddo
-
-  nullify(v10m_state)
-  nullify(v_inc)
-
-endif
+!! ----------------------------------------------------------------------
+!! Workaround: update 2m temperature from lowest model level increment
+!! ----------------------------------------------------------------------
+!
+!if (hasfield(self%fields, 'air_temperature_at_2m') .and. &
+!    hasfield(increment_fields, 'air_temperature')) then
+!
+!  call self%get_field('air_temperature_at_2m', t2m_state)
+!  call get_field(increment_fields, 'air_temperature', t_inc)
+!
+!  ksurf = self%npz
+!
+!  do j = t2m_state%jsc, t2m_state%jec
+!    do i = t2m_state%isc, t2m_state%iec
+!      t2m_state%array(i,j,1) = t2m_state%array(i,j,1) + t_inc%array(i,j,ksurf)
+!    enddo
+!  enddo
+!
+!  nullify(t2m_state)
+!  nullify(t_inc)
+!
+!endif
+!
+!! ----------------------------------------------------------------------
+!! Workaround: update 2m humidity from lowest model level increment
+!! ----------------------------------------------------------------------
+!
+!if (hasfield(self%fields, 'water_vapor_mixing_ratio_wrt_moist_air_at_2m') .and. &
+!    hasfield(increment_fields, 'water_vapor_mixing_ratio_wrt_moist_air')) then
+!
+!  call self%get_field('water_vapor_mixing_ratio_wrt_moist_air_at_2m', q2m_state)
+!  call get_field(increment_fields, 'water_vapor_mixing_ratio_wrt_moist_air', q_inc)
+!
+!  ksurf = self%npz
+!
+!  do j = q2m_state%jsc, q2m_state%jec
+!    do i = q2m_state%isc, q2m_state%iec
+!      q2m_state%array(i,j,1) = q2m_state%array(i,j,1) + q_inc%array(i,j,ksurf)
+!      if (q2m_state%array(i,j,1) < 0.0_kind_real) q2m_state%array(i,j,1) = 0.0_kind_real
+!    enddo
+!  enddo
+!
+!  nullify(q2m_state)
+!  nullify(q_inc)
+!
+!endif
+!
+!! ----------------------------------------------------------------------
+!! Workaround: update 10m eastward wind from lowest model level increment
+!! ----------------------------------------------------------------------
+!
+!if (hasfield(self%fields, 'eastward_wind_at_surface') .and. &
+!    hasfield(increment_fields, 'eastward_wind')) then
+!
+!  call self%get_field('eastward_wind_at_surface', u10m_state)
+!  call get_field(increment_fields, 'eastward_wind', u_inc)
+!
+!  ksurf = self%npz
+!
+!  do j = u10m_state%jsc, u10m_state%jec
+!    do i = u10m_state%isc, u10m_state%iec
+!      u10m_state%array(i,j,1) = u10m_state%array(i,j,1) + u_inc%array(i,j,ksurf)
+!    enddo
+!  enddo
+!
+!  nullify(u10m_state)
+!  nullify(u_inc)
+!
+!endif
+!
+!! ----------------------------------------------------------------------
+!! Workaround: update 10m northward wind from lowest model level increment
+!! ----------------------------------------------------------------------
+!
+!if (hasfield(self%fields, 'northward_wind_at_surface') .and. &
+!    hasfield(increment_fields, 'northward_wind')) then
+!
+!  call self%get_field('northward_wind_at_surface', v10m_state)
+!  call get_field(increment_fields, 'northward_wind', v_inc)
+!
+!  ksurf = self%npz
+!
+!  do j = v10m_state%jsc, v10m_state%jec
+!    do i = v10m_state%isc, v10m_state%iec
+!      v10m_state%array(i,j,1) = v10m_state%array(i,j,1) + v_inc%array(i,j,ksurf)
+!    enddo
+!  enddo
+!
+!  nullify(v10m_state)
+!  nullify(v_inc)
+!
+!endif
 
 ! ----------------------------------------------------------------------
 ! Workaround: update air_pressure_thickness from surface pressure increment
