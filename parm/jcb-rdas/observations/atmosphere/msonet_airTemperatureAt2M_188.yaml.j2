@@ -47,7 +47,7 @@
          # ------------------
          # airTemperatureAt2M (188)
          # ------------------
-{% if mesonet_use_list_airTemperatureAt2M | default(false) %}
+{% if mesonet_use_list_airTemperature | default(false) %}
 
          # Mesonet provider/station use lists
          - filter: RejectList  # initially reject all providers
@@ -84,7 +84,7 @@
              is_in: ["{{ item.subprovider }}"]
 {% endfor %}
 
-{% for item in msonet_station_accepts_airTemperatureAt2M | default([]) %}
+{% for item in msonet_station_accepts_airTemperature | default([]) %}
          - filter: AcceptList
            udescriptor: "accept_msonet_airTemperatureAt2M_stations_{{ item.provider }}"
            filter variables:
@@ -98,7 +98,7 @@
              is_in: {{ item.stations }}
 {% endfor %}
 
-{% endif %} # end of mesonet_use_list_airTemperatureAt2M
+{% endif %} # end of mesonet_use_list_airTemperature
 
          # Accept, reject, or passivate (monitor)
          - filter: Perform Action
@@ -106,7 +106,7 @@
            filter variables:
            - name: airTemperatureAt2M
            where:
-{% if mesonet_use_list_airTemperatureAt2M | default(false) %}
+{% if mesonet_use_list_airTemperature | default(false) %}
            - variable: QCflagsData/airTemperatureAt2M
              is_in: 0
 {% endif %}
