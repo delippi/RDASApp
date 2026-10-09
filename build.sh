@@ -249,6 +249,11 @@ if [[ $BUILD_RRFS_TEST == 'YES' ]]; then
     jcb_config="jcb-$ctest_yaml"
     cp $dir_root/parm/jcb-rdas/test/ci/$jcb_config .
     python run_jcb_ctest.py 2024052700 $jcb_config $ctest_yaml
+    err=$?
+    if [[ $err != 0 ]]; then
+      echo "Failed: python run_jcb_ctest.py 2024052700 "${jcb_config}" "${ctest_yaml}""
+      exit 9
+    fi
     ctest=${ctest_yaml%.yaml}
   done
   cd ${BUILD_DIR}
@@ -290,6 +295,9 @@ if [[ $BUILD_WORKAROUND == 'YES' ]]; then
   # Workaround for updating surface and delp states after outerloops (fv3-jedi PR1511)
   cp ../sorc/_workaround_/fv3-jedi/fv3jedi_state_mod.F90    ../sorc/fv3-jedi/src/fv3jedi/State/.
   cp ../sorc/_workaround_/fv3-jedi/FieldsMetadataDefault.h  ../sorc/fv3-jedi/src/fv3jedi/FieldMetadata/.
+
+  # DuplicateThinning zero-obs space fix
+  cp ../sorc/_workaround_/ufo/DuplicateThinning.cc ../sorc/ufo/src/ufo/filters/.
 
   # Workaround for ObsErrorFactorPressureCheck.cc and At2M (no PR yet)
   cp ../sorc/_workaround_/ufo/ObsErrorFactorPressureCheck.cc ../sorc/ufo/src/ufo/filters/obsfunctions/.
