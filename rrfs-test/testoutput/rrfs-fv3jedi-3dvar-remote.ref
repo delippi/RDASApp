@@ -1,11 +1,11 @@
 CostJo   : Nonlinear Jo(gnss_ztd_zenithTotalDelay) = 7.1364818184129638e+02, nobs = 463, Jo/n = 1.5413567642360613e+00, err = 9.9999997764825821e-03
 CostJo   : Nonlinear Jo(satwnd_winds_245_270) = 1.0843756929381121e+02, nobs = 280, Jo/n = 3.8727703319218287e-01, err = 1.9782929098294915e+00
-CostJo   : Nonlinear Jo(satwnd_winds_245_272) = 5.4426149725385756e+01, nobs = 298, Jo/n = 1.8263808632679784e-01, err = 1.9089334097718391e+00
 CostJo   : Nonlinear Jo(satwnd_winds_246_270) = 1.4097702244585307e+02, nobs = 276, Jo/n = 5.1078631320961254e-01, err = 3.4580681505563664e+00
-CostJo   : Nonlinear Jo(satwnd_winds_246_272) = 1.4018666894167488e+01, nobs = 38, Jo/n = 3.6891228668861809e-01, err = 3.4135119978000876e+00
 CostJo   : Nonlinear Jo(satwnd_winds_247_270) = 9.4929707059886746e-15, nobs = 632, Jo/n = 1.5020523268969423e-17, err = 5.0000000000000000e+08
+CostJo   : Nonlinear Jo(satwnd_winds_245_272) = 5.4426149725385756e+01, nobs = 298, Jo/n = 1.8263808632679784e-01, err = 1.9089334097718391e+00
+CostJo   : Nonlinear Jo(satwnd_winds_246_272) = 1.4018666894167488e+01, nobs = 38, Jo/n = 3.6891228668861809e-01, err = 3.4135119978000876e+00
 CostJo   : Nonlinear Jo(satwnd_winds_247_272) = 7.2550191122894647e-15, nobs = 486, Jo/n = 1.4928022864793138e-17, err = 5.0000000000000000e+08
-CostFunction: Nonlinear J = 1.0315075902005140e+03
+CostFunction: Nonlinear J = 1.0315075902005137e+03
 DRPCGMinimizer: reduction in residual norm = 9.7494595526830690e-04
 CostFunction::addIncrement: Analysis: 
 ----------------------------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ cloud_liquid_water                           | Min:+0.0000000000000000e+00 Max:+
 eastward_wind                                | Min:-2.7019620350443070e+01 Max:+5.2887980083076251e+01 RMS:+1.3301762628719318e+01
 eastward_wind_at_surface                     | Min:-1.2957221051159664e+01 Max:+1.2183404049847629e+01 RMS:+3.6152565483424257e+00
 f10m                                         | Min:+1.0004938840866089e+00 Max:+1.0948654413223267e+00 RMS:+1.0188698647586809e+00
-geopotential_height_times_gravity_at_surface | Min:+0.0000000000000000e+00 Max:+3.5301851562500000e+04 RMS:+7.8466628379223757e+03
+geopotential_at_surface                      | Min:+0.0000000000000000e+00 Max:+3.5301851562500000e+04 RMS:+7.8466628379223757e+03
 graupel                                      | Min:+0.0000000000000000e+00 Max:+6.5326219191774726e-04 RMS:+3.0288534886145319e-06
 northward_wind                               | Min:-3.9286421280073341e+01 Max:+3.8186007071989188e+01 RMS:+6.4392525858385143e+00
 northward_wind_at_surface                    | Min:-1.3916028251731452e+01 Max:+1.2425179242849454e+01 RMS:+3.6937643604330161e+00
@@ -41,15 +41,15 @@ vtype                                        | Min:+0.0000000000000000e+00 Max:+
 water_vapor_mixing_ratio_wrt_moist_air       | Min:+0.0000000000000000e+00 Max:+2.4622885426501581e-02 RMS:+5.5165296279421506e-03
 water_vapor_mixing_ratio_wrt_moist_air_at_2m | Min:+2.0762352270365251e-03 Max:+2.5138221597294161e-02 RMS:+1.1342945406441599e-02
 ----------------------------------------------------------------------------------------------------
-CostJo   : Nonlinear Jo(gnss_ztd_zenithTotalDelay) = 325.7283866435893, nobs = 463, Jo/n = 0.7035170337874499, err = 0.009999999776482582
+CostJo   : Nonlinear Jo(gnss_ztd_zenithTotalDelay) = 325.7283866435913, nobs = 463, Jo/n = 0.7035170337874542, err = 0.009999999776482582
 CostJo   : Nonlinear Jo(satwnd_winds_245_270) = 58.53655959842472, nobs = 280, Jo/n = 0.2090591414229454, err = 1.978292909829491
-CostJo   : Nonlinear Jo(satwnd_winds_245_272) = 30.341690996677, nobs = 298, Jo/n = 0.101817755022406, err = 1.908933409771839
 CostJo   : Nonlinear Jo(satwnd_winds_246_270) = 83.40763520179249, nobs = 276, Jo/n = 0.3022015768180887, err = 3.458068150556366
-CostJo   : Nonlinear Jo(satwnd_winds_246_272) = 10.92076732281434, nobs = 38, Jo/n = 0.2873886137582722, err = 3.413511997800088
 CostJo   : Nonlinear Jo(satwnd_winds_247_270) = 9.277736793137661e-15, nobs = 632, Jo/n = 1.467996328028111e-17, err = 500000000
+CostJo   : Nonlinear Jo(satwnd_winds_245_272) = 30.341690996677, nobs = 298, Jo/n = 0.101817755022406, err = 1.908933409771839
+CostJo   : Nonlinear Jo(satwnd_winds_246_272) = 10.92076732281434, nobs = 38, Jo/n = 0.287388613758272, err = 3.413511997800088
 CostJo   : Nonlinear Jo(satwnd_winds_247_272) = 7.082637698071222e-15, nobs = 486, Jo/n = 1.457332859685437e-17, err = 500000000
-CostFunction: Nonlinear J = 508.9350397632979
-DRPCGMinimizer: reduction in residual norm = 0.0006328088974459151
+CostFunction: Nonlinear J = 508.9350397632999
+DRPCGMinimizer: reduction in residual norm = 0.0006328088974462777
 CostFunction::addIncrement: Analysis: 
 ----------------------------------------------------------------------------------------------------
 State print | number of fields = 30 | cube sphere face size: C420
@@ -64,7 +64,7 @@ cloud_liquid_water                           | Min:+0.0000000000000000e+00 Max:+
 eastward_wind                                | Min:-2.7019634282240883e+01 Max:+5.2888330811758152e+01 RMS:+1.3301747139152440e+01
 eastward_wind_at_surface                     | Min:-1.2957135002988284e+01 Max:+1.2183188611981246e+01 RMS:+3.6152308273290115e+00
 f10m                                         | Min:+1.0004938840866089e+00 Max:+1.0948654413223267e+00 RMS:+1.0188698647586809e+00
-geopotential_height_times_gravity_at_surface | Min:+0.0000000000000000e+00 Max:+3.5301851562500000e+04 RMS:+7.8466628379223757e+03
+geopotential_at_surface                      | Min:+0.0000000000000000e+00 Max:+3.5301851562500000e+04 RMS:+7.8466628379223757e+03
 graupel                                      | Min:+0.0000000000000000e+00 Max:+6.5326219191774726e-04 RMS:+3.0288534886145319e-06
 northward_wind                               | Min:-3.9285621245083341e+01 Max:+3.8186824668220410e+01 RMS:+6.4391635025771370e+00
 northward_wind_at_surface                    | Min:-1.3915905633065593e+01 Max:+1.2425631083671622e+01 RMS:+3.6936815003468086e+00
@@ -81,14 +81,14 @@ tslb                                         | Min:+2.6350683593750000e+02 Max:+
 upward_air_velocity                          | Min:-9.9441605806350708e-01 Max:+2.9850695133209229e+00 RMS:+5.5847735613424890e-02
 vfrac                                        | Min:+0.0000000000000000e+00 Max:+9.9000000953674316e-01 RMS:+4.4064937959870992e-01
 vtype                                        | Min:+0.0000000000000000e+00 Max:+2.0000000000000000e+01 RMS:+7.1648734770793263e+00
-water_vapor_mixing_ratio_wrt_moist_air       | Min:+0.0000000000000000e+00 Max:+2.4615303320522697e-02 RMS:+5.5160969875580543e-03
-water_vapor_mixing_ratio_wrt_moist_air_at_2m | Min:+2.0417874494937493e-03 Max:+2.5130639491315276e-02 RMS:+1.1341344127024939e-02
+water_vapor_mixing_ratio_wrt_moist_air       | Min:+0.0000000000000000e+00 Max:+2.4615303320522693e-02 RMS:+5.5160969875580543e-03
+water_vapor_mixing_ratio_wrt_moist_air_at_2m | Min:+2.0417874494937493e-03 Max:+2.5130639491315273e-02 RMS:+1.1341344127024939e-02
 ----------------------------------------------------------------------------------------------------
-CostJo   : Nonlinear Jo(gnss_ztd_zenithTotalDelay) = 324.543122765515, nobs = 463, Jo/n = 0.7009570686080238, err = 0.009999999776482582
+CostJo   : Nonlinear Jo(gnss_ztd_zenithTotalDelay) = 324.5431227655157, nobs = 463, Jo/n = 0.7009570686080253, err = 0.009999999776482582
 CostJo   : Nonlinear Jo(satwnd_winds_245_270) = 58.52999524516504, nobs = 280, Jo/n = 0.2090356973041609, err = 1.978292909829491
-CostJo   : Nonlinear Jo(satwnd_winds_245_272) = 30.33518403042353, nobs = 298, Jo/n = 0.1017959195651796, err = 1.908933409771839
-CostJo   : Nonlinear Jo(satwnd_winds_246_270) = 83.40522241344358, nobs = 276, Jo/n = 0.3021928348313173, err = 3.458068150556366
-CostJo   : Nonlinear Jo(satwnd_winds_246_272) = 10.9198728009509, nobs = 38, Jo/n = 0.2873650737092343, err = 3.413511997800088
+CostJo   : Nonlinear Jo(satwnd_winds_246_270) = 83.40522241344357, nobs = 276, Jo/n = 0.3021928348313173, err = 3.458068150556366
 CostJo   : Nonlinear Jo(satwnd_winds_247_270) = 9.277920036369111e-15, nobs = 632, Jo/n = 1.468025322210302e-17, err = 500000000
+CostJo   : Nonlinear Jo(satwnd_winds_245_272) = 30.33518403042353, nobs = 298, Jo/n = 0.1017959195651796, err = 1.908933409771839
+CostJo   : Nonlinear Jo(satwnd_winds_246_272) = 10.9198728009509, nobs = 38, Jo/n = 0.2873650737092343, err = 3.413511997800088
 CostJo   : Nonlinear Jo(satwnd_winds_247_272) = 7.082602357313526e-15, nobs = 486, Jo/n = 1.457325587924594e-17, err = 500000000
-CostFunction: Nonlinear J = 507.7333972554981
+CostFunction: Nonlinear J = 507.7333972554987
