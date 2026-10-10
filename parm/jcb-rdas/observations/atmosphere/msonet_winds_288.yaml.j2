@@ -23,25 +23,39 @@
 
        obs operator:
            name: VertInterp
-           vertical coordinate: air_pressure
-           observation vertical coordinate: pressure
-           observation vertical coordinate group: MetaData
-           interpolation method: log-linear
+           # Interpolate the lowest model wind to the observation height and
+           # scale it to represent the observed 10 m wind.
+           vertical coordinate: geopotential_height
+           observation vertical coordinate: adjustedHeight
+           observation vertical coordinate group: DerivedVariables
+           interpolation method: linear
+           hofx scaling field: SurfaceWindScalingHeight
+           hofx scaling field group: DerivedVariables
            variables:
            - name: windEastward
            - name: windNorthward
 
        linear obs operator:
          name: VertInterp
-         vertical coordinate: air_pressure
-         observation vertical coordinate: pressure
-         observation vertical coordinate group: MetaData
-         interpolation method: log-linear
+         vertical coordinate: geopotential_height
+         observation vertical coordinate: adjustedHeight
+         observation vertical coordinate group: DerivedVariables
+         interpolation method: linear
+         hofx scaling field: SurfaceWindScalingHeight
+         hofx scaling field group: DerivedVariables
 
        obs error:
          covariance model: diagonal
 
        obs filters:
+         # Create the height coordinate and wind scaling used by VertInterp
+         # so surface wind H(x) represents the reported 10 m wind.
+         - filter: Variable Transforms
+           Transform: AdjustedHeightCoordinate
+           SkipWhenNoObs: False
+         - filter: Variable Transforms
+           Transform: SurfaceWindScalingHeight
+           SkipWhenNoObs: False
          # ------------------
          # wind (288)
          # ------------------
